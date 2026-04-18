@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bsp00jucjsi55"]
+
+[ext_resource type="Script" uid="uid://b6xq1xmpx01av" path="res://Scripts/game_controller.gd" id="1_vnunq"]
+[ext_resource type="PackedScene" uid="uid://cuutkagxm6kgs" path="res://Scenes/Player.tscn" id="2_nw7js"]
+[ext_resource type="PackedScene" uid="uid://c85d8pbh703j2" path="res://Scenes/FinishZone.tscn" id="3_nh7xm"]
+
+[node name="Main" type="Node2D" unique_id=2043559573]
+script = ExtResource("1_vnunq")
+
+[node name="Player" parent="." unique_id=542424475 instance=ExtResource("2_nw7js")]
+position = Vector2(489, 309)
+
+[node name="FinishZone" parent="." unique_id=1192474331 instance=ExtResource("3_nh7xm")]
+position = Vector2(798, 308)

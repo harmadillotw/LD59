@@ -1,0 +1,5 @@
+extends Node
+
+
+const MOVEMENT_TYPE_FORWARD = 0
+const MOVEMENT_TYPE_ROTATE = 1 
