@@ -1,11 +1,15 @@
 [gd_scene format=3 uid="uid://bsp00jucjsi55"]
 
-[ext_resource type="Script" uid="uid://b6xq1xmpx01av" path="res://Scripts/game_controller.gd" id="1_vnunq"]
+[ext_resource type="PackedScene" uid="uid://bf1c72ai76v0f" path="res://Scenes/GameController.tscn" id="1_nw7js"]
+[ext_resource type="PackedScene" uid="uid://1xlq88hmevau" path="res://Scenes/UI.tscn" id="2_nh7xm"]
 [ext_resource type="PackedScene" uid="uid://cuutkagxm6kgs" path="res://Scenes/Player.tscn" id="2_nw7js"]
 [ext_resource type="PackedScene" uid="uid://c85d8pbh703j2" path="res://Scenes/FinishZone.tscn" id="3_nh7xm"]
 
 [node name="Main" type="Node2D" unique_id=2043559573]
-script = ExtResource("1_vnunq")
+
+[node name="UI" parent="." unique_id=1715861981 instance=ExtResource("2_nh7xm")]
+
+[node name="GameController" parent="." unique_id=1509598834 instance=ExtResource("1_nw7js")]
 
 [node name="Player" parent="." unique_id=542424475 instance=ExtResource("2_nw7js")]
 position = Vector2(489, 309)

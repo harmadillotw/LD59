@@ -2,6 +2,9 @@ class_name Player
 extends CharacterBody2D
 
 const SPEED = 50.0
+const NORMAL_SPEED = 50.0
+const SLOW_SPEED = 25.0
+const FAST_SPEED = 100.0
 #const JUMP_VELOCITY = -400.0
 const DELAY_FRAMES = 60 # default frames per second is 60
 
@@ -75,10 +78,16 @@ func rotate_player (r_deg : float) -> void:
 	rotation_degrees +=  r_deg
 	GlobalSignals.movement_complete.emit()
 	
-func player_forward (f_sec : float, f_speed : float) -> void:
+func player_forward (f_sec : float, i_speed : int) -> void:
 	cur_time = 0.0
 	move_time = f_sec
-	player_speed = f_speed
+	if i_speed == 0:
+		player_speed = SLOW_SPEED
+	if i_speed == 1:
+		player_speed = NORMAL_SPEED
+	if i_speed == 2:
+		player_speed = FAST_SPEED
+	#player_speed = f_speed
 	moving = true
 	print("do forwards cur_time:" + str(cur_time) + " move_time:"+ str(move_time) + " moving:" + str(moving))
 	

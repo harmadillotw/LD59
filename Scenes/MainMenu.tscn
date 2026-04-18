@@ -1,13 +1,12 @@
 [gd_scene format=3 uid="uid://fus7nokrsvjx"]
 
-[ext_resource type="PackedScene" uid="uid://bf1c72ai76v0f" path="res://Scenes/GameController.tscn" id="1_tt5f1"]
+[ext_resource type="Script" uid="uid://dfl7vlg25ndd4" path="res://Scripts/main_menu_controller.gd" id="1_tt5f1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eiy7p"]
 bg_color = Color(0, 0, 0, 1)
 
 [node name="Node2D" type="Node2D" unique_id=637180458]
-
-[node name="GameController" parent="." unique_id=1509598834 instance=ExtResource("1_tt5f1")]
+script = ExtResource("1_tt5f1")
 
 [node name="Panel" type="Panel" parent="." unique_id=739270348]
 offset_left = -35.0
@@ -40,6 +39,8 @@ text = "Start"
 
 [node name="ExitButton" type="Button" parent="Panel/VBoxContainer" unique_id=1650282779]
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Exit"
 
 [connection signal="pressed" from="Panel/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]

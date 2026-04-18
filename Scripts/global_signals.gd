@@ -2,4 +2,12 @@ extends Node
 
 signal movement_complete
 
-signal finish_level
+signal level_complete
+
+signal run_commands
+
+signal process_command(command)
+
+signal restart_level
+
+signal start_movement
