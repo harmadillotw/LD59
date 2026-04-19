@@ -2,17 +2,26 @@
 
 [ext_resource type="Script" uid="uid://cuaxkslqmbvmn" path="res://Scripts/player.gd" id="1_kyqiw"]
 [ext_resource type="Texture2D" uid="uid://d22ti1080ja0p" path="res://Images/trmp_char.jpg" id="2_gntrk"]
+[ext_resource type="Script" uid="uid://brqmbquf1etva" path="res://Scripts/camera_controller.gd" id="3_dewec"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dewec"]
 size = Vector2(63, 66)
 
-[node name="Player" type="CharacterBody2D" unique_id=542424475 groups=["player"]]
+[node name="Node2D" type="Node2D" unique_id=1661316754]
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=542424475 node_paths=PackedStringArray("camera") groups=["player"]]
 motion_mode = 1
 script = ExtResource("1_kyqiw")
+camera = NodePath("../Camera2D")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1212369751]
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1212369751]
 texture = ExtResource("2_gntrk")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2119276314]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=2119276314]
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_dewec")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1970370397]
+position = Vector2(-0.5, 0)
+zoom = Vector2(0.6, 0.6)
+script = ExtResource("3_dewec")

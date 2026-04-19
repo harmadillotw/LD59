@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://b5ohq026t6q1s"]
+
+[ext_resource type="PackedScene" uid="uid://cf84ssa0rwn4f" path="res://Scenes/GameManualController.tscn" id="1_ngkmw"]
+[ext_resource type="PackedScene" uid="uid://cuutkagxm6kgs" path="res://Scenes/Player.tscn" id="3_4x5k6"]
+[ext_resource type="PackedScene" uid="uid://c85d8pbh703j2" path="res://Scenes/FinishZone.tscn" id="4_7cqr4"]
+[ext_resource type="PackedScene" uid="uid://1xlq88hmevau" path="res://Scenes/UI.tscn" id="4_ngkmw"]
+
+[node name="Main" type="Node2D" unique_id=2043559573]
+
+[node name="GameController" parent="." unique_id=1509598834 instance=ExtResource("1_ngkmw")]
+
+[node name="Player" parent="." unique_id=542424475 instance=ExtResource("3_4x5k6")]
+position = Vector2(420, 300)
+
+[node name="FinishZone" parent="." unique_id=1192474331 instance=ExtResource("4_7cqr4")]
+position = Vector2(930, 300)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1853162283]
+
+[node name="UI" parent="CanvasLayer" unique_id=1715861981 instance=ExtResource("4_ngkmw")]

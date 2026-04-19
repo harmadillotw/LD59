@@ -1,6 +1,7 @@
 class_name Player
 extends CharacterBody2D
 
+@export var camera : Camera2D
 const SPEED = 50.0
 const NORMAL_SPEED = 50.0
 const SLOW_SPEED = 25.0
@@ -20,6 +21,10 @@ func _ready() -> void:
 	for i in range(DELAY_FRAMES):
 		queue.push_back(Vector2(0,0))
 
+func _process(delta: float) -> void:
+	camera.position = position
+	if velocity == Vector2(0,0):
+		print("stopped")
 func _physics_process(delta: float) -> void:
 	if movement_mode == 0:
 		# Move from commands
@@ -30,38 +35,40 @@ func _physics_process(delta: float) -> void:
 	
 func move_by_commands(delta) -> void:
 	#print("moving?: " + str(moving))
-	if moving:
-		#print("c" + str(cur_time) + " m" + str(move_time))	
-		if cur_time < move_time:
-			#print("move bigger")
-			var remain = move_time - cur_time
-			#print("remain:"+ str(remain))
-			if remain >= delta:
-				cur_time += delta
-				#velocity.x +=(SPEED * delta)
-				move_local_x(player_speed * delta)
+	if Globals.game_type == Globals.GAME_TYPE_COMMAND:
+		if moving:
+			#print("c" + str(cur_time) + " m" + str(move_time))	
+			if cur_time < move_time:
+				#print("move bigger")
+				var remain = move_time - cur_time
+				#print("remain:"+ str(remain))
+				if remain >= delta:
+					cur_time += delta
+					#velocity.x +=(SPEED * delta)
+					move_local_x(player_speed * delta)
+				else:
+					cur_time = move_time
+					#velocity.x += (SPEED * remain)
+					move_local_x(player_speed * remain)
 			else:
-				cur_time = move_time
-				#velocity.x += (SPEED * remain)
-				move_local_x(player_speed * remain)
-		else:
-			moving = false
-			velocity.x = 0.0
-			GlobalSignals.movement_complete.emit()
-			#send signal
-		move_and_slide()
-	#print("c" + str(cur_time) + " m" + str(move_time))
+				moving = false
+				velocity.x = 0.0
+				GlobalSignals.movement_complete.emit()
+				#send signal
+			move_and_slide()
+		#print("c" + str(cur_time) + " m" + str(move_time))	
 	
-	# MOVE BY COMMAND
-	#var input_x : float = Input.get_axis("left", "right")
-	#rotation_degrees += 220.0 * delta * input_x
-	#if Input.is_action_pressed("up"):
-	#	var dir: Vector2 = Vector2.from_angle(rotation + deg_to_rad(-90.0))
-	#	velocity = dir * SPEED
-	#else:
-		
-	#	velocity = Vector2(0,0)
-	#move_and_slide()
+	elif Globals.game_type == Globals.GAME_TYPE_MANUAL:
+		# MOVE BY COMMAND
+		var input_x : float = Input.get_axis("left", "right")
+		rotation_degrees += 220.0 * delta * input_x
+		if Input.is_action_pressed("up"):
+			var dir: Vector2 = Vector2.from_angle(rotation)
+			velocity = dir * SPEED
+		else:
+			
+			velocity = Vector2(0,0)
+		move_and_slide()
 	
 	
 func move_by_delay(delta) -> void:

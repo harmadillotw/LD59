@@ -1,24 +1,9 @@
-[gd_scene format=3 uid="uid://1xlq88hmevau"]
+[gd_scene format=3 uid="uid://coeqskk1oge4f"]
 
-[ext_resource type="Script" uid="uid://bwfreylscv5jk" path="res://Scripts/ui_controller.gd" id="1_w371h"]
+[ext_resource type="Script" uid="uid://c46oecopyctdi" path="res://Scripts/ui_manual_controller.gd" id="1_j70yq"]
 
-[node name="UI" type="Node2D" unique_id=1715861981 node_paths=PackedStringArray("time_label", "running_label", "type_option_button", "duration_label", "duration_text", "speed_label", "speed_option_button", "degrees_label", "degrees_text", "commands_vbox", "active_command_label", "level_complete_panel", "debug_panel", "command_ui_panel", "next_level_button")]
-script = ExtResource("1_w371h")
-time_label = NodePath("TimeLabel")
-running_label = NodePath("RunningLabel")
-type_option_button = NodePath("CommandUIPanel/TypeOptionButton")
-duration_label = NodePath("CommandUIPanel/DurationLabel")
-duration_text = NodePath("CommandUIPanel/DurationTextEdit")
-speed_label = NodePath("CommandUIPanel/SpeedLabel")
-speed_option_button = NodePath("CommandUIPanel/SpeedOptionButton")
-degrees_label = NodePath("CommandUIPanel/DegreesLabel")
-degrees_text = NodePath("CommandUIPanel/DegreesTextEdit")
-commands_vbox = NodePath("CommandUIPanel/CommandsVBoxContainer")
-active_command_label = NodePath("ActiveCommandLabel")
-level_complete_panel = NodePath("CompleteLevelPanel")
-debug_panel = NodePath("DebugPanel")
-command_ui_panel = NodePath("CommandUIPanel")
-next_level_button = NodePath("CompleteLevelPanel/NextLevelButton")
+[node name="UI_M" type="Node2D" unique_id=1715861981]
+script = ExtResource("1_j70yq")
 
 [node name="TimeLabel" type="Label" parent="." unique_id=1379987851]
 offset_left = 725.0

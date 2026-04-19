@@ -20,6 +20,7 @@ var pre_commands : Array[MovementCommand] = []
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# signals
+	print("MANUAL")
 	GlobalSignals.run_commands.connect(_process_run_commands)
 	GlobalSignals.process_command.connect(_process_process_command)
 	GlobalSignals.level_complete.connect(_process_level_complete)

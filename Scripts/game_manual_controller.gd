@@ -10,7 +10,7 @@ var player_start_position : Vector2
 var player_start_rotation : float
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	Globals.game_type = Globals.GAME_TYPE_COMMAND
+	Globals.game_type = Globals.GAME_TYPE_MANUAL
 	Globals.level_time_elapsed = 0.0
 	count_time = false
 	GlobalSignals.movement_complete.connect(_process_movement_complete)
@@ -34,7 +34,11 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if count_time:
 		Globals.level_time_elapsed += delta
-	
+	if player.velocity == Vector2(0,0):
+		if finish_zone.test_object_in_zone():
+			count_time = false
+			print("Finished")
+			GlobalSignals.level_complete.emit()
 func _input(event: InputEvent) -> void:
 	if moving:
 		pass
