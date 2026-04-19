@@ -15,11 +15,13 @@ extends Node2D
 @export var debug_panel : Panel
 @export var command_ui_panel : Panel
 @export var next_level_button : Button
+@export var level_description_label : Label
 
 var pre_commands : Array[MovementCommand] = []
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# signals
+	level_description_label.text = Globals.command_levels[Globals.current_level].level_description
 	GlobalSignals.run_commands.connect(_process_run_commands)
 	GlobalSignals.process_command.connect(_process_process_command)
 	GlobalSignals.level_complete.connect(_process_level_complete)

@@ -1,15 +1,17 @@
 [gd_scene format=3 uid="uid://cfhpeovy8ybgl"]
 
+[ext_resource type="Texture2D" uid="uid://c8v43mukq1u0v" path="res://Images/lab_floor_3.jpg" id="1_ccifb"]
 [ext_resource type="PackedScene" uid="uid://1xlq88hmevau" path="res://Scenes/UI.tscn" id="1_s0xyj"]
 [ext_resource type="PackedScene" uid="uid://bf1c72ai76v0f" path="res://Scenes/GameController.tscn" id="2_38glg"]
 [ext_resource type="PackedScene" uid="uid://cuutkagxm6kgs" path="res://Scenes/Player.tscn" id="3_ccifb"]
 [ext_resource type="PackedScene" uid="uid://c85d8pbh703j2" path="res://Scenes/FinishZone.tscn" id="4_y5hg5"]
-[ext_resource type="Texture2D" uid="uid://btfeob7cl7r8l" path="res://Images/t_rock.png" id="5_38glg"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_ccifb"]
-radius = 101.17806
+[ext_resource type="PackedScene" uid="uid://b8s4juv2f8pum" path="res://Scenes/Crate.tscn" id="6_ccifb"]
 
 [node name="Main" type="Node2D" unique_id=2043559573]
+
+[node name="BackgroundSprite2D" type="Sprite2D" parent="." unique_id=1759345077]
+position = Vector2(330, 222)
+texture = ExtResource("1_ccifb")
 
 [node name="UI" parent="." unique_id=1715861981 instance=ExtResource("1_s0xyj")]
 visible = false
@@ -27,11 +29,5 @@ position = Vector2(930, 300)
 [node name="UI" parent="CanvasLayer" unique_id=1353338375 instance=ExtResource("1_s0xyj")]
 metadata/_edit_lock_ = true
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1086294138]
+[node name="StaticBody2D" parent="." unique_id=516737051 instance=ExtResource("6_ccifb")]
 position = Vector2(663, 300)
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=1823571910]
-texture = ExtResource("5_38glg")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2069100366]
-shape = SubResource("CircleShape2D_ccifb")

@@ -1,11 +1,16 @@
 [gd_scene format=3 uid="uid://b5ohq026t6q1s"]
 
 [ext_resource type="PackedScene" uid="uid://cf84ssa0rwn4f" path="res://Scenes/GameManualController.tscn" id="1_ngkmw"]
+[ext_resource type="Texture2D" uid="uid://c8v43mukq1u0v" path="res://Images/lab_floor_3.jpg" id="1_otf1g"]
 [ext_resource type="PackedScene" uid="uid://cuutkagxm6kgs" path="res://Scenes/Player.tscn" id="3_4x5k6"]
 [ext_resource type="PackedScene" uid="uid://c85d8pbh703j2" path="res://Scenes/FinishZone.tscn" id="4_7cqr4"]
 [ext_resource type="PackedScene" uid="uid://1xlq88hmevau" path="res://Scenes/UI.tscn" id="4_ngkmw"]
 
 [node name="Main" type="Node2D" unique_id=2043559573]
+
+[node name="BackgroundSprite2D" type="Sprite2D" parent="." unique_id=1369359630]
+position = Vector2(361, 226)
+texture = ExtResource("1_otf1g")
 
 [node name="GameController" parent="." unique_id=1509598834 instance=ExtResource("1_ngkmw")]
 

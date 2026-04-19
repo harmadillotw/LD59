@@ -3,7 +3,8 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	#var level : Level =Level.new("Lab1 - Transverse","res://Scenes/Level_1.tscn", 0.35)
+	Globals.command_levels.push_back(Level.new("Lab1 - Transverse","res://Scenes/Level_1.tscn", 0.35))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

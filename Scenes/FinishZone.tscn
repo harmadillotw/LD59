@@ -2,16 +2,38 @@
 
 [ext_resource type="Texture2D" uid="uid://dlpiueyw8wwj3" path="res://Images/finish_zone.png" id="1_1ai7h"]
 [ext_resource type="Script" uid="uid://cshbdso5cfja8" path="res://Scripts/finish_zone_controller.gd" id="1_gy860"]
+[ext_resource type="Texture2D" uid="uid://0oa5jnqpwyur" path="res://Images/finish_zone2.1.png" id="3_e5cq1"]
+[ext_resource type="Texture2D" uid="uid://daxsjtrdxc5oo" path="res://Images/finish_zone2.2.png" id="4_2bt20"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gy860"]
 size = Vector2(130, 131)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mshqh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_e5cq1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2bt20")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
 
 [node name="FinishZone" type="Area2D" unique_id=1192474331 groups=["finish_zone"]]
 script = ExtResource("1_gy860")
 
 [node name="FinishZoneSprite" type="Sprite2D" parent="." unique_id=1277784113]
+visible = false
 texture = ExtResource("1_1ai7h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=435093361]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_gy860")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1277822943]
+sprite_frames = SubResource("SpriteFrames_mshqh")
+autoplay = "default"
+frame_progress = 0.6575304

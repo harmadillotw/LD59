@@ -1,11 +1,17 @@
 [gd_scene format=3 uid="uid://b414wy12vk0xj"]
 
+[ext_resource type="Texture2D" uid="uid://c8v43mukq1u0v" path="res://Images/lab_floor_3.jpg" id="1_2g134"]
 [ext_resource type="PackedScene" uid="uid://1xlq88hmevau" path="res://Scenes/UI.tscn" id="1_apq5t"]
 [ext_resource type="PackedScene" uid="uid://bf1c72ai76v0f" path="res://Scenes/GameController.tscn" id="2_wn4i5"]
 [ext_resource type="PackedScene" uid="uid://cuutkagxm6kgs" path="res://Scenes/Player.tscn" id="3_2g134"]
 [ext_resource type="PackedScene" uid="uid://c85d8pbh703j2" path="res://Scenes/FinishZone.tscn" id="4_cleky"]
+[ext_resource type="PackedScene" uid="uid://b8s4juv2f8pum" path="res://Scenes/Crate.tscn" id="6_cleky"]
 
 [node name="Main" type="Node2D" unique_id=2043559573]
+
+[node name="BackgroundSprite2D" type="Sprite2D" parent="." unique_id=157876858]
+position = Vector2(361, 226)
+texture = ExtResource("1_2g134")
 
 [node name="GameController" parent="." unique_id=1509598834 instance=ExtResource("2_wn4i5")]
 
@@ -19,3 +25,43 @@ position = Vector2(800, 250)
 
 [node name="UI" parent="CanvasLayer" unique_id=1353338375 instance=ExtResource("1_apq5t")]
 metadata/_edit_lock_ = true
+
+[node name="Crate" parent="." unique_id=516737051 instance=ExtResource("6_cleky")]
+position = Vector2(1290, 19)
+scale = Vector2(0.49963236, 0.54108846)
+
+[node name="Crate10" parent="." unique_id=1927674700 instance=ExtResource("6_cleky")]
+position = Vector2(1194.0001, 703)
+scale = Vector2(0.49963236, 0.54108846)
+
+[node name="Crate9" parent="." unique_id=899576313 instance=ExtResource("6_cleky")]
+position = Vector2(1284.0001, 731)
+scale = Vector2(0.49963236, 0.54108846)
+
+[node name="Crate8" parent="." unique_id=1751376037 instance=ExtResource("6_cleky")]
+position = Vector2(1230.0001, 769)
+scale = Vector2(0.49963236, 0.54108846)
+
+[node name="Crate7" parent="." unique_id=1685749776 instance=ExtResource("6_cleky")]
+position = Vector2(464.00003, -4.999998)
+scale = Vector2(0.49963236, 0.54108846)
+
+[node name="Crate6" parent="." unique_id=1508938267 instance=ExtResource("6_cleky")]
+position = Vector2(811, 9)
+scale = Vector2(0.49963236, 0.54108846)
+
+[node name="Crate2" parent="." unique_id=1022013175 instance=ExtResource("6_cleky")]
+position = Vector2(1268, 109.00001)
+scale = Vector2(0.49963236, 0.54108846)
+
+[node name="Crate3" parent="." unique_id=458856810 instance=ExtResource("6_cleky")]
+position = Vector2(1302.0001, -3)
+scale = Vector2(0.49963236, 0.54108846)
+
+[node name="Crate4" parent="." unique_id=1779807229 instance=ExtResource("6_cleky")]
+position = Vector2(1169, 132)
+scale = Vector2(0.49963236, 0.54108846)
+
+[node name="Crate5" parent="." unique_id=1509311600 instance=ExtResource("6_cleky")]
+position = Vector2(1184.0001, 34)
+scale = Vector2(0.49963236, 0.54108846)

@@ -2,6 +2,9 @@ class_name Player
 extends CharacterBody2D
 
 @export var camera : Camera2D
+
+@onready var animated_sprite_2d = $AnimatedSprite2D
+
 const SPEED = 50.0
 const NORMAL_SPEED = 50.0
 const SLOW_SPEED = 25.0
@@ -18,6 +21,7 @@ var player_speed = 0.0
 
 func _ready() -> void:
 	#set the initial delay to the movement
+	animated_sprite_2d.play("default")
 	for i in range(DELAY_FRAMES):
 		queue.push_back(Vector2(0,0))
 
@@ -52,6 +56,7 @@ func move_by_commands(delta) -> void:
 					move_local_x(player_speed * remain)
 			else:
 				moving = false
+				animated_sprite_2d.play("default")
 				velocity.x = 0.0
 				GlobalSignals.movement_complete.emit()
 				#send signal
@@ -61,6 +66,7 @@ func move_by_commands(delta) -> void:
 	elif Globals.game_type == Globals.GAME_TYPE_MANUAL:
 		# MOVE BY COMMAND
 		var input_x : float = Input.get_axis("left", "right")
+		
 		rotation_degrees += 220.0 * delta * input_x
 		if Input.is_action_pressed("up"):
 			var dir: Vector2 = Vector2.from_angle(rotation)
@@ -82,7 +88,9 @@ func move_by_delay(delta) -> void:
 	move_and_slide()
 	
 func rotate_player (r_deg : float) -> void:
-	rotation_degrees +=  r_deg
+	var tween = get_tree().create_tween()
+	tween.tween_property(self, "rotation_degrees", r_deg, 1.0)
+	#rotation_degrees +=  r_deg
 	GlobalSignals.movement_complete.emit()
 	
 func player_forward (f_sec : float, i_speed : int) -> void:
@@ -96,6 +104,7 @@ func player_forward (f_sec : float, i_speed : int) -> void:
 		player_speed = FAST_SPEED
 	#player_speed = f_speed
 	moving = true
+	animated_sprite_2d.play("moving")
 	print("do forwards cur_time:" + str(cur_time) + " move_time:"+ str(move_time) + " moving:" + str(moving))
 	
 		

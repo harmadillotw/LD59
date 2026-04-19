@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bwfreylscv5jk" path="res://Scripts/ui_controller.gd" id="1_w371h"]
 
-[node name="UI" type="Node2D" unique_id=1715861981 node_paths=PackedStringArray("time_label", "running_label", "type_option_button", "duration_label", "duration_text", "speed_label", "speed_option_button", "degrees_label", "degrees_text", "commands_vbox", "active_command_label", "level_complete_panel", "debug_panel", "command_ui_panel", "next_level_button")]
+[node name="UI" type="Node2D" unique_id=1715861981 node_paths=PackedStringArray("time_label", "running_label", "type_option_button", "duration_label", "duration_text", "speed_label", "speed_option_button", "degrees_label", "degrees_text", "commands_vbox", "active_command_label", "level_complete_panel", "debug_panel", "command_ui_panel", "next_level_button", "level_description_label")]
 script = ExtResource("1_w371h")
 time_label = NodePath("TimeLabel")
 running_label = NodePath("RunningLabel")
@@ -19,19 +19,29 @@ level_complete_panel = NodePath("CompleteLevelPanel")
 debug_panel = NodePath("DebugPanel")
 command_ui_panel = NodePath("CommandUIPanel")
 next_level_button = NodePath("CompleteLevelPanel/NextLevelButton")
+level_description_label = NodePath("LevelDescriptionLabel")
+
+[node name="LevelDescriptionLabel" type="Label" parent="." unique_id=963256914]
+offset_left = 286.0
+offset_top = 7.0
+offset_right = 767.0
+offset_bottom = 136.0
+theme_override_font_sizes/font_size = 48
+text = "LAB 1"
+autowrap_mode = 2
 
 [node name="TimeLabel" type="Label" parent="." unique_id=1379987851]
-offset_left = 725.0
+offset_left = 780.0
 offset_top = 14.0
-offset_right = 818.0
+offset_right = 873.0
 offset_bottom = 53.0
 text = "0.0"
 
 [node name="RunningLabel" type="Label" parent="." unique_id=1524061191]
-offset_left = 550.0
-offset_top = 14.0
-offset_right = 691.0
-offset_bottom = 37.0
+offset_left = 30.0
+offset_top = 21.0
+offset_right = 171.0
+offset_bottom = 44.0
 text = "Enter Commands"
 
 [node name="ResetLevelButton" type="Button" parent="." unique_id=229677555]

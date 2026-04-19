@@ -13,5 +13,10 @@ var game_type
 var level_time_elapsed
 var running_commands
 var current_level
-var levels = ["res://Scenes/Level_M1.tscn"]
+
+var command_levels : Array[Level] = []
+var manual_levels : Array[Level] = []
+
+#var levels = ["res://Scenes/Level_M1.tscn"]
+var levels = ["res://Scenes/Level_1.tscn"]
 #var levels = ["res://Scenes/Level_1.tscn", "res://Scenes/Level_2.tscn","res://Scenes/Level_3.tscn"]
