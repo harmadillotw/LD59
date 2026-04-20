@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://bdsx1hy2kv2ml"]
+
+[ext_resource type="Script" uid="uid://dhk7sgr545ow0" path="res://Scripts/start_level_controller.gd" id="1_dn88e"]
+[ext_resource type="FontFile" uid="uid://7qvcmgqhouif" path="res://Fonts/SpaceRave-6YE1M.ttf" id="2_gma6d"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e4kob"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dn88e"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.078431375, 0.078431375, 0.6666667, 1)
+
+[node name="StartLevel" type="Node2D" unique_id=537201315]
+script = ExtResource("1_dn88e")
+
+[node name="Panel" type="Panel" parent="." unique_id=1860033303]
+offset_left = -18.0
+offset_top = -16.0
+offset_right = 1182.0
+offset_bottom = 671.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_e4kob")
+
+[node name="TitleLabel" type="Label" parent="Panel" unique_id=1893375416]
+layout_mode = 0
+offset_left = 114.0
+offset_top = 46.0
+offset_right = 1040.0
+offset_bottom = 145.0
+theme_override_colors/font_color = Color(0.078431375, 0.078431375, 0.6666667, 1)
+theme_override_fonts/font = ExtResource("2_gma6d")
+theme_override_font_sizes/font_size = 72
+text = "Title"
+horizontal_alignment = 1
+
+[node name="StartButton" type="Button" parent="Panel" unique_id=1204448485]
+layout_mode = 0
+offset_left = 529.0
+offset_top = 588.0
+offset_right = 664.0
+offset_bottom = 643.0
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_dn88e")
+text = "Start"
+
+[node name="Label" type="Label" parent="Panel" unique_id=86451763]
+layout_mode = 0
+offset_left = 52.0
+offset_top = 167.0
+offset_right = 1129.0
+offset_bottom = 288.0
+theme_override_font_sizes/font_size = 32
+text = "test"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Panel" unique_id=1537403847]
+layout_mode = 0
+offset_left = 98.0
+offset_top = 304.0
+offset_right = 292.0
+offset_bottom = 349.0
+theme_override_font_sizes/font_size = 32
+text = "Instructions:"
+
+[node name="Label3" type="Label" parent="Panel" unique_id=669185260]
+layout_mode = 0
+offset_left = 178.0
+offset_top = 361.0
+offset_right = 1156.0
+offset_bottom = 554.0
+
+[connection signal="pressed" from="Panel/StartButton" to="." method="_on_start_button_pressed"]

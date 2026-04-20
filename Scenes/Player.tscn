@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://jjweqdd2lckq" path="res://Images/rover_colour_1.2.png" id="3_5ixxa"]
 [ext_resource type="Script" uid="uid://brqmbquf1etva" path="res://Scripts/camera_controller.gd" id="3_dewec"]
 [ext_resource type="Texture2D" uid="uid://da5uhwumaaccu" path="res://Images/rover_colour_2.2.png" id="4_nn08x"]
+[ext_resource type="Texture2D" uid="uid://ck6x7yjfoa8pm" path="res://Images/indicator.png" id="5_nn08x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dewec"]
 size = Vector2(64, 67)
@@ -51,7 +52,11 @@ shape = SubResource("RectangleShape2D_dewec")
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_52ee3")
 animation = &"moving"
-frame_progress = 0.20068398
+frame_progress = 0.3882709
+
+[node name="indicatorSprite2D" type="Sprite2D" parent="Player" unique_id=285095826]
+position = Vector2(61, 1)
+texture = ExtResource("5_nn08x")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1970370397]
 position = Vector2(-0.5, 0)

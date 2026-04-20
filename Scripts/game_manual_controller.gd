@@ -12,7 +12,7 @@ var player_start_rotation : float
 func _ready() -> void:
 	Globals.game_type = Globals.GAME_TYPE_MANUAL
 	Globals.level_time_elapsed = 0.0
-	count_time = false
+	count_time = true
 	GlobalSignals.movement_complete.connect(_process_movement_complete)
 	GlobalSignals.restart_level.connect(_process_restart_level)
 	GlobalSignals.start_movement.connect(_process_start_movement)

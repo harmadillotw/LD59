@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://duw35wirbw8my"]
+
+[ext_resource type="Script" uid="uid://cxvml6simr3xx" path="res://Scripts/splash_screen_controller.gd" id="1_pufkq"]
+[ext_resource type="Texture2D" uid="uid://cfw7tv2wurmqc" path="res://Images/Moon/moon_back1.jpg" id="2_7m5qv"]
+[ext_resource type="FontFile" uid="uid://7qvcmgqhouif" path="res://Fonts/SpaceRave-6YE1M.ttf" id="3_ki8ww"]
+[ext_resource type="Texture2D" uid="uid://d22ti1080ja0p" path="res://Images/trmp_char.jpg" id="4_mm423"]
+[ext_resource type="Texture2D" uid="uid://jjweqdd2lckq" path="res://Images/rover_colour_1.2.png" id="5_nh1li"]
+[ext_resource type="Texture2D" uid="uid://da5uhwumaaccu" path="res://Images/rover_colour_2.2.png" id="6_mpken"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mm423"]
+texture = ExtResource("2_7m5qv")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aek00"]
+size = Vector2(64, 67)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g3d7y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_nh1li")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_nh1li")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_mpken")
+}],
+"loop": true,
+"name": &"moving",
+"speed": 5.0
+}]
+
+[node name="SplashScreen" type="Node2D" unique_id=1212947078]
+script = ExtResource("1_pufkq")
+
+[node name="Panel" type="Panel" parent="." unique_id=283918052]
+offset_left = -35.0
+offset_top = -24.0
+offset_right = 1210.0
+offset_bottom = 688.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_mm423")
+
+[node name="TitleLabel" type="Label" parent="Panel" unique_id=1447325287]
+layout_mode = 0
+offset_left = 420.0
+offset_top = 66.0
+offset_right = 772.0
+offset_bottom = 186.0
+theme_override_colors/font_color = Color(0.078431375, 0.078431375, 0.6666667, 1)
+theme_override_fonts/font = ExtResource("3_ki8ww")
+theme_override_font_sizes/font_size = 72
+text = "Space Rover"
+horizontal_alignment = 1
+
+[node name="Player" type="CharacterBody2D" parent="Panel" unique_id=1416449935 groups=["player"]]
+position = Vector2(350, 350)
+motion_mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel/Player" unique_id=2012585818]
+visible = false
+texture = ExtResource("4_mm423")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Panel/Player" unique_id=1322514730]
+position = Vector2(-1, -0.5)
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_aek00")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Panel/Player" unique_id=539790453]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_g3d7y")
+animation = &"moving"

@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://d1ft3wiykt80p"]
+
+[ext_resource type="Texture2D" uid="uid://brs7iwfss2r8v" path="res://Images/lab_floor_1.jpg" id="1_1p71l"]
+[ext_resource type="Texture2D" uid="uid://dnb4q445fdvpw" path="res://Images/Mars/mars_back1.jpg" id="2_koeam"]
+[ext_resource type="PackedScene" uid="uid://1xlq88hmevau" path="res://Scenes/UI.tscn" id="3_la271"]
+[ext_resource type="PackedScene" uid="uid://bf1c72ai76v0f" path="res://Scenes/GameController.tscn" id="4_x5mjt"]
+[ext_resource type="PackedScene" uid="uid://cuutkagxm6kgs" path="res://Scenes/Player.tscn" id="5_iktf3"]
+[ext_resource type="PackedScene" uid="uid://c85d8pbh703j2" path="res://Scenes/FinishZone.tscn" id="6_28uwt"]
+[ext_resource type="Texture2D" uid="uid://bs85vttf8d7lt" path="res://Images/Mars/mars_rock_1.png" id="7_8kuwj"]
+[ext_resource type="Texture2D" uid="uid://cwe3w62euifhw" path="res://Images/Mars/mars_rock_2.png" id="8_qe361"]
+[ext_resource type="Texture2D" uid="uid://d3om451mc7ksp" path="res://Images/Mars/mars_rock_3.png" id="9_4yvab"]
+
+[node name="Main" type="Node2D" unique_id=2043559573]
+
+[node name="Background2Sprite2D" type="Sprite2D" parent="." unique_id=100411970]
+position = Vector2(791, 401)
+scale = Vector2(2, 2)
+texture = ExtResource("1_1p71l")
+
+[node name="BackgroundSprite2D" type="Sprite2D" parent="." unique_id=1230310100]
+position = Vector2(428, 293)
+texture = ExtResource("2_koeam")
+
+[node name="UI" parent="." unique_id=1715861981 instance=ExtResource("3_la271")]
+visible = false
+
+[node name="GameController" parent="." unique_id=1509598834 instance=ExtResource("4_x5mjt")]
+
+[node name="Player" parent="." unique_id=542424475 instance=ExtResource("5_iktf3")]
+position = Vector2(1902, 656)
+
+[node name="FinishZone" parent="." unique_id=1192474331 instance=ExtResource("6_28uwt")]
+position = Vector2(-718, 1079)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1853162283]
+
+[node name="UI" parent="CanvasLayer" unique_id=1353338375 instance=ExtResource("3_la271")]
+metadata/_edit_lock_ = true
+
+[node name="MarsRock1" type="Sprite2D" parent="." unique_id=41918342]
+position = Vector2(-485, 603)
+texture = ExtResource("7_8kuwj")
+
+[node name="MarsRock2" type="Sprite2D" parent="." unique_id=46765098]
+position = Vector2(-357, 828)
+texture = ExtResource("8_qe361")
+
+[node name="MarsRock3" type="Sprite2D" parent="." unique_id=209209838]
+position = Vector2(590, 272)
+texture = ExtResource("9_4yvab")
+
+[node name="MarsRock4" type="Sprite2D" parent="." unique_id=1212620854]
+position = Vector2(1040, 1375)
+scale = Vector2(1.1247615, 1.972931)
+texture = ExtResource("8_qe361")
+
+[node name="MarsRock5" type="Sprite2D" parent="." unique_id=1114751142]
+position = Vector2(636, 989)
+texture = ExtResource("7_8kuwj")
+
+[node name="MarsRock6" type="Sprite2D" parent="." unique_id=1161979404]
+position = Vector2(-1271, -321)
+texture = ExtResource("9_4yvab")
+
+[node name="MarsRock7" type="Sprite2D" parent="." unique_id=411573559]
+position = Vector2(1803, -473)
+texture = ExtResource("8_qe361")
+
+[node name="MarsRock8" type="Sprite2D" parent="." unique_id=2110138848]
+position = Vector2(-315, -344)
+rotation = -0.7627473
+texture = ExtResource("7_8kuwj")
+
+[node name="MarsRock9" type="Sprite2D" parent="." unique_id=291073925]
+position = Vector2(-159, -330)
+texture = ExtResource("9_4yvab")

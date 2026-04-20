@@ -16,6 +16,7 @@ extends Node2D
 @export var command_ui_panel : Panel
 @export var next_level_button : Button
 @export var level_description_label : Label
+@export var completed_time_label : Label
 
 var pre_commands : Array[MovementCommand] = []
 # Called when the node enters the scene tree for the first time.
@@ -34,6 +35,10 @@ func _ready() -> void:
 	degrees_label.visible = false
 	degrees_text.visible = false
 	speed_option_button.selected = 1
+	if Globals.game_type == Globals.GAME_TYPE_COMMAND:
+		command_ui_panel.visible = true
+	else:
+		command_ui_panel.visible = false
 
 
 		
@@ -54,8 +59,16 @@ func _process_process_command(command: MovementCommand) -> void:
 	active_command_label.text = command._to_string()
 	
 func _process_level_complete() -> void:
-	if Globals.current_level + 1 >= Globals.levels.size():
-		next_level_button.visible = false
+	var format_string = "Completed in %.2f seconds"
+	var display_string = format_string % Globals.level_time_elapsed
+	completed_time_label.text = display_string
+	if Globals.game_type == Globals.GAME_TYPE_COMMAND:
+		if Globals.current_level + 1 >= Globals.command_levels.size():
+			next_level_button.visible = false
+	else:
+		if Globals.current_level + 1 >= Globals.manual_levels.size():
+			next_level_button.visible = false
+			
 	level_complete_panel.visible = true
 	
 func _process_run_commands_complete() -> void:
@@ -80,18 +93,19 @@ func _on_type_option_button_item_selected(index: int) -> void:
 
 
 func _on_add_command_button_pressed() -> void:
-	if type_option_button.selected == 0:
-		var new_command = MovementCommand.new(type_option_button.selected,speed_option_button.selected,duration_text.text.to_float(),0)
-		Globals.current_commands.push_back(new_command)
-		var test = Label.new()
-		test.text = new_command.to_string()
-		commands_vbox.add_child(test)
-	if type_option_button.selected == 1:
-		var new_command = MovementCommand.new(type_option_button.selected,0,0,degrees_text.text.to_float())
-		var test = Label.new()
-		test.text = new_command.to_string()
-		commands_vbox.add_child(test)
-		Globals.current_commands.push_back(new_command)
+	if Globals.current_commands.size() < 5:
+		if type_option_button.selected == 0:
+			var new_command = MovementCommand.new(type_option_button.selected,speed_option_button.selected,duration_text.text.to_float(),0)
+			Globals.current_commands.push_back(new_command)
+			var test = Label.new()
+			test.text = new_command.to_string()
+			commands_vbox.add_child(test)
+		if type_option_button.selected == 1:
+			var new_command = MovementCommand.new(type_option_button.selected,0,0,degrees_text.text.to_float())
+			var test = Label.new()
+			test.text = new_command.to_string()
+			commands_vbox.add_child(test)
+			Globals.current_commands.push_back(new_command)
 
 
 func _on_clear_commands_button_pressed() -> void:
@@ -128,11 +142,19 @@ func _on_exit_button_pressed() -> void:
 
 func _on_next_level_button_pressed() -> void:
 	Globals.current_level += 1
-	if Globals.current_level < Globals.levels.size():
-		level_complete_panel.visible = false
-		_on_reset_level_button_pressed()
-		command_ui_panel.visible = true
-		get_tree().change_scene_to_file(Globals.levels[Globals.current_level])
+	var next_level
+	if Globals.game_type == Globals.GAME_TYPE_COMMAND:
+		if Globals.current_level < Globals.command_levels.size():
+			next_level = Globals.command_levels[Globals.current_level].level_link
+	elif Globals.game_type == Globals.GAME_TYPE_MANUAL:
+		if Globals.current_level < Globals.manual_levels.size():
+			next_level = Globals.manual_levels[Globals.current_level].level_link
+	level_complete_panel.visible = false
+	_on_reset_level_button_pressed()
+	command_ui_panel.visible = true
+	if next_level != null:
+		#get_tree().change_scene_to_file(next_level)
+		get_tree().change_scene_to_file("res://Scenes/StartLevel.tscn")
 
 
 func _on_d_main_menu_button_pressed() -> void:

@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://b77hoeatv704v"]
+
+[ext_resource type="Texture2D" uid="uid://brs7iwfss2r8v" path="res://Images/lab_floor_1.jpg" id="1_ng15y"]
+[ext_resource type="Texture2D" uid="uid://cfw7tv2wurmqc" path="res://Images/Moon/moon_back1.jpg" id="2_oh5is"]
+[ext_resource type="PackedScene" uid="uid://1xlq88hmevau" path="res://Scenes/UI.tscn" id="3_n0lwb"]
+[ext_resource type="PackedScene" uid="uid://bf1c72ai76v0f" path="res://Scenes/GameController.tscn" id="4_ndbqr"]
+[ext_resource type="PackedScene" uid="uid://cuutkagxm6kgs" path="res://Scenes/Player.tscn" id="5_lvm1v"]
+[ext_resource type="PackedScene" uid="uid://c85d8pbh703j2" path="res://Scenes/FinishZone.tscn" id="6_qegmw"]
+[ext_resource type="PackedScene" uid="uid://bxhgvsj00ay4t" path="res://Scenes/Moon/MoonRock_1.tscn" id="7_ndbqr"]
+[ext_resource type="PackedScene" uid="uid://bgalku5gxoh18" path="res://Scenes/Moon/MoonRock_2.tscn" id="8_lvm1v"]
+[ext_resource type="PackedScene" uid="uid://cby6ij7cermf" path="res://Scenes/Moon/MoonRock_3.tscn" id="9_qegmw"]
+
+[node name="Main" type="Node2D" unique_id=2043559573]
+
+[node name="Background2Sprite2D" type="Sprite2D" parent="." unique_id=100411970]
+position = Vector2(791, 401)
+scale = Vector2(2, 2)
+texture = ExtResource("1_ng15y")
+
+[node name="BackgroundSprite2D" type="Sprite2D" parent="." unique_id=1230310100]
+position = Vector2(428, 293)
+texture = ExtResource("2_oh5is")
+
+[node name="UI" parent="." unique_id=1715861981 instance=ExtResource("3_n0lwb")]
+visible = false
+
+[node name="GameController" parent="." unique_id=1509598834 instance=ExtResource("4_ndbqr")]
+
+[node name="Player" parent="." unique_id=542424475 instance=ExtResource("5_lvm1v")]
+position = Vector2(-538, 472)
+
+[node name="FinishZone" parent="." unique_id=1192474331 instance=ExtResource("6_qegmw")]
+position = Vector2(1708, -221)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1853162283]
+
+[node name="UI" parent="CanvasLayer" unique_id=1353338375 instance=ExtResource("3_n0lwb")]
+metadata/_edit_lock_ = true
+
+[node name="MoonRock_1" parent="." unique_id=1309824182 instance=ExtResource("7_ndbqr")]
+position = Vector2(1645, 1065)
+scale = Vector2(0.7527513, 0.6544347)
+
+[node name="MoonRock_2" parent="." unique_id=383036228 instance=ExtResource("8_lvm1v")]
+position = Vector2(646, 466)
+
+[node name="MoonRock_3" parent="." unique_id=1561239513 instance=ExtResource("9_qegmw")]
+position = Vector2(755.9999, 630.00006)
+rotation = -0.22220619
+scale = Vector2(0.79346037, 1)
+
+[node name="MoonRock_4" parent="." unique_id=15629215 instance=ExtResource("8_lvm1v")]
+position = Vector2(779, -315)
+
+[node name="MoonRock_5" parent="." unique_id=35565248 instance=ExtResource("9_qegmw")]
+position = Vector2(709, 36)
+
+[node name="MoonRock_6" parent="." unique_id=2144704909 instance=ExtResource("7_ndbqr")]
+position = Vector2(-860, -203)
+
+[node name="MoonRock_7" parent="." unique_id=584972686 instance=ExtResource("7_ndbqr")]
+position = Vector2(466, -416)

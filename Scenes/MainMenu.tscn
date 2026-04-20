@@ -1,9 +1,71 @@
 [gd_scene format=3 uid="uid://fus7nokrsvjx"]
 
 [ext_resource type="Script" uid="uid://dfl7vlg25ndd4" path="res://Scripts/main_menu_controller.gd" id="1_tt5f1"]
+[ext_resource type="Texture2D" uid="uid://cfw7tv2wurmqc" path="res://Images/Moon/moon_back1.jpg" id="2_853f1"]
+[ext_resource type="FontFile" uid="uid://7qvcmgqhouif" path="res://Fonts/SpaceRave-6YE1M.ttf" id="3_8saeu"]
+[ext_resource type="Texture2D" uid="uid://d22ti1080ja0p" path="res://Images/trmp_char.jpg" id="5_koqhg"]
+[ext_resource type="Texture2D" uid="uid://jjweqdd2lckq" path="res://Images/rover_colour_1.2.png" id="6_cmrfp"]
+[ext_resource type="Texture2D" uid="uid://da5uhwumaaccu" path="res://Images/rover_colour_2.2.png" id="7_loo7a"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eiy7p"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8saeu"]
+texture = ExtResource("2_853f1")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_853f1"]
 bg_color = Color(0, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.078431375, 0.078431375, 0.6666667, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8saeu"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.078431375, 0.078431375, 0.6666667, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ghw46"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.078431375, 0.078431375, 0.6666667, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_df05h"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.078431375, 0.078431375, 0.6666667, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_if7li"]
+size = Vector2(64, 67)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rrcx7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_cmrfp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_cmrfp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_loo7a")
+}],
+"loop": true,
+"name": &"moving",
+"speed": 5.0
+}]
 
 [node name="Node2D" type="Node2D" unique_id=637180458]
 script = ExtResource("1_tt5f1")
@@ -13,7 +75,7 @@ offset_left = -35.0
 offset_top = -24.0
 offset_right = 1210.0
 offset_bottom = 688.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_eiy7p")
+theme_override_styles/panel = SubResource("StyleBoxTexture_8saeu")
 
 [node name="TitleLabel" type="Label" parent="Panel" unique_id=1525956245]
 layout_mode = 0
@@ -21,26 +83,94 @@ offset_left = 420.0
 offset_top = 66.0
 offset_right = 772.0
 offset_bottom = 186.0
+theme_override_colors/font_color = Color(0.078431375, 0.078431375, 0.6666667, 1)
+theme_override_fonts/font = ExtResource("3_8saeu")
 theme_override_font_sizes/font_size = 72
-text = "Signal"
+text = "Space Rover"
 horizontal_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=1959168391]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 0
-offset_left = 526.0
-offset_top = 264.0
-offset_right = 677.0
-offset_bottom = 589.0
+offset_left = 761.0
+offset_top = 250.0
+offset_right = 1115.0
+offset_bottom = 575.0
 
 [node name="StartButton" type="Button" parent="Panel/VBoxContainer" unique_id=269867657]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_853f1")
 text = "Start"
+
+[node name="Panel" type="Panel" parent="Panel/VBoxContainer" unique_id=615633638]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8saeu")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer/Panel" unique_id=622412557]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CommandCheckButton" type="CheckButton" parent="Panel/VBoxContainer/Panel/HBoxContainer" unique_id=1167161383]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_colors/button_checked_color = Color(0.078431375, 0.078431375, 0.6666667, 1)
+text = "Command"
+
+[node name="ManualCheckButton" type="CheckButton" parent="Panel/VBoxContainer/Panel/HBoxContainer" unique_id=1049338785]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_colors/button_checked_color = Color(0.078431375, 0.078431375, 0.6666667, 1)
+text = "Manual"
+
+[node name="Panel2" type="Panel" parent="Panel/VBoxContainer" unique_id=480372137]
+visible = false
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ghw46")
+
+[node name="InstructionsCheckButton" type="CheckButton" parent="Panel/VBoxContainer/Panel2" unique_id=340773737]
+layout_mode = 0
+offset_right = 187.0
+offset_bottom = 31.0
+theme_override_font_sizes/font_size = 24
+theme_override_colors/button_checked_color = Color(0.078431375, 0.078431375, 0.6666667, 1)
+text = "Show Instructions"
+
+[node name="OptionsButton" type="Button" parent="Panel/VBoxContainer" unique_id=1302825765]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_df05h")
+text = "Options"
 
 [node name="ExitButton" type="Button" parent="Panel/VBoxContainer" unique_id=1650282779]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_df05h")
 text = "Exit"
 
+[node name="Player" type="CharacterBody2D" parent="Panel" unique_id=1898469071 groups=["player"]]
+position = Vector2(350, 350)
+motion_mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel/Player" unique_id=465925280]
+visible = false
+texture = ExtResource("5_koqhg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Panel/Player" unique_id=275029811]
+position = Vector2(-1, -0.5)
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_if7li")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Panel/Player" unique_id=1064824027]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_rrcx7")
+animation = &"moving"
+
 [connection signal="pressed" from="Panel/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Panel/HBoxContainer/CommandCheckButton" to="." method="_on_command_check_button_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Panel/HBoxContainer/ManualCheckButton" to="." method="_on_manual_check_button_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
